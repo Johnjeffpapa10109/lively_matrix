@@ -6,7 +6,7 @@ var root = {
     },
     rainbowSpeed: 0.5,
     rainbow: true,
-    matrixspeed: 50
+    matrixspeed: 100
 };
 
 var c = document.getElementById("c");
@@ -59,6 +59,7 @@ function draw() {
           var rr = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 0) + 128);
           var rg = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 2) + 128);
           var rb = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 4) + 128);
+	  var rd = Math.floor(127 * Math.sin(root.rainbowSpeed * hue + 8) + 128);
           ctx.fillStyle = 'rgba(' + rr + ',' + rg + ',' + rb + ')';
         } else {
           ctx.fillStyle = 'rgba(' + root.wavecolor.r + ',' + root.wavecolor.g + ',' + root.wavecolor.b + ')';
@@ -97,7 +98,8 @@ function hexToRgb(hex) {
   return result ? {
     r: parseInt(result[1], 16),
     g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
+    b: parseInt(result[3], 16),
+    d: parseInt(result[4], 16),
   } : null;
 }
 
